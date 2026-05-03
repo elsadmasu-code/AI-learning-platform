@@ -23,6 +23,26 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    message: 'AI Learning Platform API',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      users: '/api/users',
+      courses: '/api/courses',
+      lessons: '/api/lessons',
+      quizzes: '/api/quizzes',
+      enrollments: '/api/enrollments',
+      payments: '/api/payments',
+      reviews: '/api/reviews',
+      certificates: '/api/certificates',
+      ai: '/api/ai'
+    }
+  });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
