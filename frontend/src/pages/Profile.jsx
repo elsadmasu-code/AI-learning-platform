@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { showSuccess } from '../utils/toast';
 
 function Profile() {
   const { user } = useSelector((state) => state.auth);
+  const [formData, setFormData] = useState({
+    name: user?.name || 'John Doe',
+    email: user?.email || 'john.doe@example.com',
+    bio: user?.bio || '',
+    linkedin: user?.socialLinks?.linkedin || '',
+    github: user?.socialLinks?.github || '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSaveChanges = (e) => {
+    e.preventDefault();
+    // Simulate saving profile
+    showSuccess('Profile updated successfully!');
+    console.log('Saving profile data:', formData);
+  };
 
   const styles = {
     container: { padding: '40px 20px', maxWidth: '1200px', margin: '0 auto', background: '#f7fafc', minHeight: '100vh' },
@@ -17,23 +40,57 @@ function Profile() {
     statLabel: { color: '#718096' },
     statValue: { fontWeight: 'bold', color: '#2d3748' },
     skill: { display: 'inline-block', padding: '8px 16px', background: '#667eea', color: 'white', borderRadius: '20px', marginRight: '10px', marginBottom: '10px', fontSize: '14px' },
-    button: { padding: '12px 24px', background: '#667eea', color: 'white', border: 'none', borderRadius: '10px', cursor: 'pointer', fontWeight: 'bold', fontSize: '16px' },
+    button: { 
+      padding: '12px 24px', 
+      background: '#667eea', 
+      color: 'white', 
+      border: 'none', 
+      borderRadius: '10px', 
+      cursor: 'pointer', 
+      fontWeight: 'bold', 
+      fontSize: '16px',
+      transition: 'background 0.3s',
+      minHeight: '44px',
+    },
     inputGroup: { marginBottom: '20px' },
     label: { display: 'block', marginBottom: '8px', fontWeight: 'bold', color: '#2d3748' },
-    input: { width: '100%', padding: '12px', border: '2px solid #e2e8f0', borderRadius: '10px', fontSize: '16px' },
+    input: { width: '100%', padding: '12px', border: '2px solid #e2e8f0', borderRadius: '10px', fontSize: '16px', boxSizing: 'border-box' },
   };
 
   return (
     <div style={styles.container}>
-      <div style={styles.header}>
-        <div style={styles.avatar}>👤</div>
-        <h1 style={styles.name}>{user?.name || 'John Doe'}</h1>
-        <p style={styles.email}>{user?.email || 'john.doe@example.com'}</p>
+      <style>{`
+        @media (max-width: 1024px) {
+          .profile-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 768px) {
+          .profile-header { padding: 40px 20px !important; }
+          .profile-name { font-size: 24px !important; }
+          .profile-email { font-size: 16px !important; }
+          .profile-avatar { width: 100px !important; height: 100px !important; font-size: 40px !important; }
+        }
+        @media (max-width: 480px) {
+          .card { padding: 20px !important; }
+          .stat { flex-direction: column !important; gap: 5px !important; }
+        }
+        .save-button:hover {
+          background: #5568d3 !important;
+        }
+        input:focus, textarea:focus {
+          outline: none;
+          border-color: #667eea;
+        }
+      `}</style>
+
+      <div style={styles.header} className="profile-header">
+        <div style={styles.avatar} className="profile-avatar">👤</div>
+        <h1 style={styles.name} className="profile-name">{formData.name}</h1>
+        <p style={styles.email} className="profile-email">{formData.email}</p>
       </div>
 
-      <div style={styles.grid}>
+      <div style={styles.grid} className="profile-grid">
         <div>
-          <div style={styles.card}>
+          <div style={styles.card} className="card">
             <h2 style={styles.cardTitle}>Stats</h2>
             <div style={styles.stat}>
               <span style={styles.statLabel}>Level</span>
@@ -57,7 +114,7 @@ function Profile() {
             </div>
           </div>
 
-          <div style={styles.card}>
+          <div style={styles.card} className="card">
             <h2 style={styles.cardTitle}>Skills</h2>
             <div>
               <span style={styles.skill}>Python</span>
@@ -71,29 +128,70 @@ function Profile() {
         </div>
 
         <div>
-          <div style={styles.card}>
+          <div style={styles.card} className="card">
             <h2 style={styles.cardTitle}>Edit Profile</h2>
-            <div style={styles.inputGroup}>
-              <label style={styles.label}>Full Name</label>
-              <input type="text" defaultValue={user?.name || 'John Doe'} style={styles.input} />
-            </div>
-            <div style={styles.inputGroup}>
-              <label style={styles.label}>Email</label>
-              <input type="email" defaultValue={user?.email || 'john.doe@example.com'} style={styles.input} />
-            </div>
-            <div style={styles.inputGroup}>
-              <label style={styles.label}>Bio</label>
-              <textarea rows="4" placeholder="Tell us about yourself..." style={{...styles.input, resize: 'vertical'}} defaultValue={user?.bio || ''}></textarea>
-            </div>
-            <div style={styles.inputGroup}>
-              <label style={styles.label}>LinkedIn</label>
-              <input type="url" placeholder="https://linkedin.com/in/yourprofile" style={styles.input} defaultValue={user?.socialLinks?.linkedin || ''} />
-            </div>
-            <div style={styles.inputGroup}>
-              <label style={styles.label}>GitHub</label>
-              <input type="url" placeholder="https://github.com/yourusername" style={styles.input} defaultValue={user?.socialLinks?.github || ''} />
-            </div>
-            <button style={styles.button}>Save Changes</button>
+            <form onSubmit={handleSaveChanges}>
+              <div style={styles.inputGroup}>
+                <label style={styles.label}>Full Name</label>
+                <input 
+                  type="text" 
+                  name="name"
+                  value={formData.name} 
+                  onChange={handleInputChange}
+                  style={styles.input} 
+                />
+              </div>
+              <div style={styles.inputGroup}>
+                <label style={styles.label}>Email</label>
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email} 
+                  onChange={handleInputChange}
+                  style={styles.input} 
+                />
+              </div>
+              <div style={styles.inputGroup}>
+                <label style={styles.label}>Bio</label>
+                <textarea 
+                  rows="4" 
+                  name="bio"
+                  placeholder="Tell us about yourself..." 
+                  value={formData.bio}
+                  onChange={handleInputChange}
+                  style={{...styles.input, resize: 'vertical'}}
+                ></textarea>
+              </div>
+              <div style={styles.inputGroup}>
+                <label style={styles.label}>LinkedIn</label>
+                <input 
+                  type="url" 
+                  name="linkedin"
+                  placeholder="https://linkedin.com/in/yourprofile" 
+                  value={formData.linkedin}
+                  onChange={handleInputChange}
+                  style={styles.input} 
+                />
+              </div>
+              <div style={styles.inputGroup}>
+                <label style={styles.label}>GitHub</label>
+                <input 
+                  type="url" 
+                  name="github"
+                  placeholder="https://github.com/yourusername" 
+                  value={formData.github}
+                  onChange={handleInputChange}
+                  style={styles.input} 
+                />
+              </div>
+              <button 
+                type="submit"
+                style={styles.button}
+                className="save-button"
+              >
+                Save Changes
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -102,3 +200,4 @@ function Profile() {
 }
 
 export default Profile;
+

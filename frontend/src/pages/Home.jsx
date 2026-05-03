@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate();
+
   const styles = {
     container: {
       minHeight: '100vh',
@@ -39,6 +42,7 @@ function Home() {
       fontWeight: 'bold',
       boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
       transition: 'transform 0.3s',
+      minWidth: '200px',
     },
     secondaryButton: {
       padding: '15px 40px',
@@ -50,6 +54,7 @@ function Home() {
       cursor: 'pointer',
       fontWeight: 'bold',
       transition: 'transform 0.3s',
+      minWidth: '200px',
     },
     featuresSection: {
       padding: '80px 20px',
@@ -75,6 +80,7 @@ function Home() {
       borderRadius: '15px',
       boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
       transition: 'transform 0.3s',
+      cursor: 'pointer',
     },
     featureIcon: {
       fontSize: '48px',
@@ -116,16 +122,33 @@ function Home() {
 
   return (
     <div style={styles.container}>
-      <div style={styles.hero}>
-        <h1 style={styles.heroTitle}>Master Skills with AI-Powered Learning</h1>
-        <p style={styles.heroSubtitle}>
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-title { font-size: 32px !important; }
+          .hero-subtitle { font-size: 16px !important; }
+          .section-title { font-size: 28px !important; }
+          .feature-card { padding: 20px !important; }
+          .stat-number { font-size: 36px !important; }
+          .features-grid { grid-template-columns: 1fr !important; }
+          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 480px) {
+          .hero { padding: 60px 20px !important; }
+          .button-group button { min-width: 150px !important; font-size: 16px !important; padding: 12px 30px !important; }
+        }
+      `}</style>
+
+      <div style={styles.hero} className="hero">
+        <h1 style={styles.heroTitle} className="hero-title">Master Skills with AI-Powered Learning</h1>
+        <p style={styles.heroSubtitle} className="hero-subtitle">
           Learn in-demand skills with AI guidance and gamified challenges
         </p>
-        <div style={styles.buttonGroup}>
+        <div style={styles.buttonGroup} className="button-group">
           <button 
             style={styles.primaryButton}
             onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
             onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+            onClick={() => navigate('/courses')}
           >
             Start Learning
           </button>
@@ -133,6 +156,7 @@ function Home() {
             style={styles.secondaryButton}
             onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
             onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+            onClick={() => navigate('/courses')}
           >
             Explore Courses
           </button>
@@ -140,45 +164,75 @@ function Home() {
       </div>
 
       <div style={styles.featuresSection}>
-        <h2 style={styles.sectionTitle}>Why Choose AI Learning Platform?</h2>
-        <div style={styles.featuresGrid}>
-          <div style={styles.featureCard}>
+        <h2 style={styles.sectionTitle} className="section-title">Why Choose AI Learning Platform?</h2>
+        <div style={styles.featuresGrid} className="features-grid">
+          <div 
+            style={styles.featureCard} 
+            className="feature-card"
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
             <div style={styles.featureIcon}>🤖</div>
             <h3 style={styles.featureTitle}>AI-Powered Learning</h3>
             <p style={styles.featureDescription}>
               Get personalized learning paths and real-time AI assistance tailored to your goals
             </p>
           </div>
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>🤖</div>
+          <div 
+            style={styles.featureCard}
+            className="feature-card"
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <div style={styles.featureIcon}>🎮</div>
             <h3 style={styles.featureTitle}>Gamification</h3>
             <p style={styles.featureDescription}>
               Earn XP, unlock achievements, and compete on leaderboards while learning
             </p>
           </div>
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>🤖</div>
+          <div 
+            style={styles.featureCard}
+            className="feature-card"
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <div style={styles.featureIcon}>📊</div>
             <h3 style={styles.featureTitle}>Progress Tracking</h3>
             <p style={styles.featureDescription}>
               Monitor your learning journey with detailed analytics and insights
             </p>
           </div>
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>🤖</div>
+          <div 
+            style={styles.featureCard}
+            className="feature-card"
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <div style={styles.featureIcon}>👨‍🏫</div>
             <h3 style={styles.featureTitle}>Expert Instructors</h3>
             <p style={styles.featureDescription}>
               Learn from industry professionals with years of real-world experience
             </p>
           </div>
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>🤖</div>
+          <div 
+            style={styles.featureCard}
+            className="feature-card"
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <div style={styles.featureIcon}>💼</div>
             <h3 style={styles.featureTitle}>Career Support</h3>
             <p style={styles.featureDescription}>
               Get job-ready with portfolio projects and career guidance
             </p>
           </div>
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>🤖</div>
+          <div 
+            style={styles.featureCard}
+            className="feature-card"
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <div style={styles.featureIcon}>🎓</div>
             <h3 style={styles.featureTitle}>Certificates</h3>
             <p style={styles.featureDescription}>
               Earn recognized certificates to showcase your achievements
@@ -188,22 +242,22 @@ function Home() {
       </div>
 
       <div style={styles.statsSection}>
-        <h2 style={styles.sectionTitle}>Our Impact</h2>
-        <div style={styles.statsGrid}>
+        <h2 style={styles.sectionTitle} className="section-title">Our Impact</h2>
+        <div style={styles.statsGrid} className="stats-grid">
           <div>
-            <div style={styles.statNumber}>10,000+</div>
+            <div style={styles.statNumber} className="stat-number">10,000+</div>
             <div style={styles.statLabel}>Active Learners</div>
           </div>
           <div>
-            <div style={styles.statNumber}>500+</div>
+            <div style={styles.statNumber} className="stat-number">500+</div>
             <div style={styles.statLabel}>Courses</div>
           </div>
           <div>
-            <div style={styles.statNumber}>95%</div>
+            <div style={styles.statNumber} className="stat-number">95%</div>
             <div style={styles.statLabel}>Success Rate</div>
           </div>
           <div>
-            <div style={styles.statNumber}>50+</div>
+            <div style={styles.statNumber} className="stat-number">50+</div>
             <div style={styles.statLabel}>Expert Instructors</div>
           </div>
         </div>

@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { showInfo } from '../utils/toast';
 
 function Admin() {
+  const [activeModal, setActiveModal] = useState(null);
+
+  const handleAddCourse = () => {
+    showInfo('Add Course feature - Coming soon!');
+    setActiveModal('addCourse');
+  };
+
+  const handleManageUsers = () => {
+    showInfo('Manage Users feature - Coming soon!');
+    setActiveModal('manageUsers');
+  };
+
+  const handleViewReports = () => {
+    showInfo('View Reports feature - Coming soon!');
+    setActiveModal('viewReports');
+  };
+
   const styles = {
     container: { padding: '40px 20px', maxWidth: '1400px', margin: '0 auto', background: '#f7fafc', minHeight: '100vh' },
     header: { marginBottom: '40px' },
@@ -20,43 +38,81 @@ function Admin() {
     badge: { padding: '5px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold' },
     activityItem: { display: 'flex', gap: '15px', padding: '15px', background: '#f7fafc', borderRadius: '10px', marginBottom: '10px' },
     activityIcon: { width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px' },
+    actionButton: {
+      width: '100%',
+      padding: '15px',
+      color: 'white',
+      border: 'none',
+      borderRadius: '10px',
+      fontSize: '16px',
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      marginBottom: '10px',
+      transition: 'transform 0.3s, box-shadow 0.3s',
+      minHeight: '44px',
+    },
   };
 
   return (
     <div style={styles.container}>
+      <style>{`
+        @media (max-width: 1024px) {
+          .admin-main-grid { grid-template-columns: 1fr !important; }
+          .admin-stats { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 768px) {
+          .admin-title { font-size: 28px !important; }
+          .stat-value { font-size: 32px !important; }
+          .admin-table { font-size: 14px !important; }
+          .admin-table th, .admin-table td { padding: 10px !important; }
+        }
+        @media (max-width: 480px) {
+          .admin-stats { grid-template-columns: 1fr !important; }
+          .card { padding: 20px !important; }
+          .admin-table { display: block; overflow-x: auto; }
+        }
+        .action-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .action-button:active {
+          transform: translateY(0);
+        }
+      `}</style>
+
       <div style={styles.header}>
-        <h1 style={styles.title}>Admin Dashboard</h1>
+        <h1 style={styles.title} className="admin-title">Admin Dashboard</h1>
         <p style={styles.subtitle}>Manage your platform and monitor performance</p>
       </div>
 
-      <div style={styles.statsGrid}>
+      <div style={styles.statsGrid} className="admin-stats">
         <div style={{...styles.statCard, borderLeftColor: '#667eea'}}>
           <div style={{...styles.statValue, color: '#667eea'}}>12,340</div>
           <div style={styles.statLabel}>Total Users</div>
-          <div style={{...styles.statChange, color: '#48bb78'}}>? 12% from last month</div>
+          <div style={{...styles.statChange, color: '#48bb78'}}>↑ 12% from last month</div>
         </div>
         <div style={{...styles.statCard, borderLeftColor: '#48bb78'}}>
           <div style={{...styles.statValue, color: '#48bb78'}}>567</div>
           <div style={styles.statLabel}>Total Courses</div>
-          <div style={{...styles.statChange, color: '#48bb78'}}>? 8% from last month</div>
+          <div style={{...styles.statChange, color: '#48bb78'}}>↑ 8% from last month</div>
         </div>
         <div style={{...styles.statCard, borderLeftColor: '#ed8936'}}>
           <div style={{...styles.statValue, color: '#ed8936'}}>45,678</div>
           <div style={styles.statLabel}>Enrollments</div>
-          <div style={{...styles.statChange, color: '#48bb78'}}>? 23% from last month</div>
+          <div style={{...styles.statChange, color: '#48bb78'}}>↑ 23% from last month</div>
         </div>
         <div style={{...styles.statCard, borderLeftColor: '#9f7aea'}}>
           <div style={{...styles.statValue, color: '#9f7aea'}}>$89,234</div>
           <div style={styles.statLabel}>Revenue</div>
-          <div style={{...styles.statChange, color: '#48bb78'}}>? 15% from last month</div>
+          <div style={{...styles.statChange, color: '#48bb78'}}>↑ 15% from last month</div>
         </div>
       </div>
 
-      <div style={styles.mainGrid}>
+      <div style={styles.mainGrid} className="admin-main-grid">
         <div>
-          <div style={styles.card}>
+          <div style={styles.card} className="card">
             <h2 style={styles.cardTitle}>Recent Users</h2>
-            <table style={styles.table}>
+            <table style={styles.table} className="admin-table">
               <thead>
                 <tr>
                   <th style={styles.th}>Name</th>
@@ -92,9 +148,9 @@ function Admin() {
             </table>
           </div>
 
-          <div style={styles.card}>
+          <div style={styles.card} className="card">
             <h2 style={styles.cardTitle}>Top Courses</h2>
-            <table style={styles.table}>
+            <table style={styles.table} className="admin-table">
               <thead>
                 <tr>
                   <th style={styles.th}>Course</th>
@@ -110,21 +166,21 @@ function Admin() {
                   <td style={styles.td}>Dr. Sarah Johnson</td>
                   <td style={styles.td}>2,345</td>
                   <td style={styles.td}>$117,250</td>
-                  <td style={styles.td}>? 4.9</td>
+                  <td style={styles.td}>⭐ 4.9</td>
                 </tr>
                 <tr>
                   <td style={styles.td}>Full Stack Development</td>
                   <td style={styles.td}>John Smith</td>
                   <td style={styles.td}>1,876</td>
                   <td style={styles.td}>$75,040</td>
-                  <td style={styles.td}>? 4.8</td>
+                  <td style={styles.td}>⭐ 4.8</td>
                 </tr>
                 <tr>
                   <td style={styles.td}>Data Science</td>
                   <td style={styles.td}>Emily Davis</td>
                   <td style={styles.td}>1,567</td>
                   <td style={styles.td}>$70,515</td>
-                  <td style={styles.td}>? 4.7</td>
+                  <td style={styles.td}>⭐ 4.7</td>
                 </tr>
               </tbody>
             </table>
@@ -132,7 +188,7 @@ function Admin() {
         </div>
 
         <div>
-          <div style={styles.card}>
+          <div style={styles.card} className="card">
             <h2 style={styles.cardTitle}>Recent Activity</h2>
             <div style={styles.activityItem}>
               <div style={{...styles.activityIcon, background: '#e6fffa'}}>👤</div>
@@ -160,15 +216,27 @@ function Admin() {
             </div>
           </div>
 
-          <div style={styles.card}>
+          <div style={styles.card} className="card">
             <h2 style={styles.cardTitle}>Quick Actions</h2>
-            <button style={{ width: '100%', padding: '15px', background: '#667eea', color: 'white', border: 'none', borderRadius: '10px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer', marginBottom: '10px' }}>
+            <button 
+              style={{...styles.actionButton, background: '#667eea'}}
+              className="action-button"
+              onClick={handleAddCourse}
+            >
               Add New Course
             </button>
-            <button style={{ width: '100%', padding: '15px', background: '#48bb78', color: 'white', border: 'none', borderRadius: '10px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer', marginBottom: '10px' }}>
+            <button 
+              style={{...styles.actionButton, background: '#48bb78'}}
+              className="action-button"
+              onClick={handleManageUsers}
+            >
               Manage Users
             </button>
-            <button style={{ width: '100%', padding: '15px', background: '#ed8936', color: 'white', border: 'none', borderRadius: '10px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer' }}>
+            <button 
+              style={{...styles.actionButton, background: '#ed8936'}}
+              className="action-button"
+              onClick={handleViewReports}
+            >
               View Reports
             </button>
           </div>
