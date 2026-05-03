@@ -73,15 +73,15 @@ function Footer() {
       <div style={styles.container}>
         <div style={styles.grid}>
           <div style={styles.section}>
-            <h3 style={styles.title}>?? AI Academy</h3>
+            <h3 style={styles.title}>🤖 AI Academy</h3>
             <p style={{ color: '#cbd5e0', lineHeight: '1.6' }}>
               Master skills with AI-powered learning. Join thousands of learners advancing their careers with our platform.
             </p>
             <div style={styles.social}>
-              <div style={styles.socialIcon}>??</div>
-              <div style={styles.socialIcon}>??</div>
-              <div style={styles.socialIcon}>??</div>
-              <div style={styles.socialIcon}>??</div>
+              <div style={styles.socialIcon}>📱</div>
+              <div style={styles.socialIcon}>📱</div>
+              <div style={styles.socialIcon}>📱</div>
+              <div style={styles.socialIcon}>📱</div>
             </div>
           </div>
 
@@ -107,17 +107,17 @@ function Footer() {
             <h3 style={styles.title}>Contact Developer</h3>
             <div style={{ color: '#cbd5e0', lineHeight: '1.8' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                <span>??</span>
+                <span>👤</span>
                 <span>Elsabet Admasu</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                <span>??</span>
+                <span>👤</span>
                 <a href="mailto:elsadmasu@gmail.com" style={{ color: '#cbd5e0', textDecoration: 'none' }}>
                   elsadmasu@gmail.com
                 </a>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span>??</span>
+                <span>👤</span>
                 <a href="tel:+251932454889" style={{ color: '#cbd5e0', textDecoration: 'none' }}>
                   +251 932 454 889
                 </a>
@@ -130,10 +130,10 @@ function Footer() {
 
         <div style={styles.bottom}>
           <div>
-            � {new Date().getFullYear()} AI Learning Platform. All rights reserved.
+            � {new Date().getFullYear()} AI Learning Platform. All rights reserved.
           </div>
           <div>
-            Developed with ?? by <strong>Elsabet Admasu</strong>
+            Developed with ❤️ by <strong>Elsabet Admasu</strong>
           </div>
         </div>
       </div>

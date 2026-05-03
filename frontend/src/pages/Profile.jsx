@@ -26,7 +26,7 @@ function Profile() {
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <div style={styles.avatar}>??</div>
+        <div style={styles.avatar}>👤</div>
         <h1 style={styles.name}>{user?.name || 'John Doe'}</h1>
         <p style={styles.email}>{user?.email || 'john.doe@example.com'}</p>
       </div>

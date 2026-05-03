@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 function Dashboard() {
   const styles = {
@@ -57,30 +57,30 @@ function Dashboard() {
           <div style={styles.card}>
             <h2 style={styles.cardTitle}>Continue Learning</h2>
             <div style={styles.courseItem}>
-              <div style={styles.thumbnail}>??</div>
+              <div style={styles.thumbnail}>📚</div>
               <div style={styles.courseInfo}>
                 <div style={styles.courseTitle}>AI & Machine Learning Bootcamp</div>
-                <div style={styles.progress}>Module 3 of 8 � 45% Complete</div>
+                <div style={styles.progress}>Module 3 of 8 � 45% Complete</div>
                 <div style={styles.progressBar}>
                   <div style={{...styles.progressFill, width: '45%'}}></div>
                 </div>
               </div>
             </div>
             <div style={styles.courseItem}>
-              <div style={styles.thumbnail}>??</div>
+              <div style={styles.thumbnail}>📚</div>
               <div style={styles.courseInfo}>
                 <div style={styles.courseTitle}>Full Stack Web Development</div>
-                <div style={styles.progress}>Module 6 of 10 � 60% Complete</div>
+                <div style={styles.progress}>Module 6 of 10 � 60% Complete</div>
                 <div style={styles.progressBar}>
                   <div style={{...styles.progressFill, width: '60%'}}></div>
                 </div>
               </div>
             </div>
             <div style={styles.courseItem}>
-              <div style={styles.thumbnail}>??</div>
+              <div style={styles.thumbnail}>📚</div>
               <div style={styles.courseInfo}>
                 <div style={styles.courseTitle}>Data Science with Python</div>
-                <div style={styles.progress}>Module 2 of 7 � 28% Complete</div>
+                <div style={styles.progress}>Module 2 of 7 � 28% Complete</div>
                 <div style={styles.progressBar}>
                   <div style={{...styles.progressFill, width: '28%'}}></div>
                 </div>
@@ -91,21 +91,21 @@ function Dashboard() {
           <div style={styles.card}>
             <h2 style={styles.cardTitle}>Recent Achievements</h2>
             <div style={styles.achievement}>
-              <div style={{...styles.badge, background: '#ffd700'}}>??</div>
+              <div style={{...styles.badge, background: '#ffd700'}}>🏆</div>
               <div>
                 <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>First Course Completed</div>
                 <div style={{ fontSize: '14px', color: '#718096' }}>Completed your first course</div>
               </div>
             </div>
             <div style={styles.achievement}>
-              <div style={{...styles.badge, background: '#48bb78'}}>??</div>
+              <div style={{...styles.badge, background: '#48bb78'}}>🔥</div>
               <div>
                 <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>30 Day Streak</div>
                 <div style={{ fontSize: '14px', color: '#718096' }}>Learned for 30 consecutive days</div>
               </div>
             </div>
             <div style={styles.achievement}>
-              <div style={{...styles.badge, background: '#667eea'}}>?</div>
+              <div style={{...styles.badge, background: '#667eea'}}>⭐</div>
               <div>
                 <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>Level 12 Reached</div>
                 <div style={{ fontSize: '14px', color: '#718096' }}>Earned 12,000+ XP</div>
@@ -158,7 +158,7 @@ function Dashboard() {
           <div style={styles.card}>
             <h2 style={styles.cardTitle}>Daily Challenge</h2>
             <div style={{ textAlign: 'center', padding: '20px' }}>
-              <div style={{ fontSize: '48px', marginBottom: '15px' }}>??</div>
+              <div style={{ fontSize: '48px', marginBottom: '15px' }}>🎯</div>
               <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>Complete 3 Lessons Today</div>
               <div style={{ fontSize: '14px', color: '#718096', marginBottom: '20px' }}>Progress: 2/3</div>
               <div style={styles.progressBar}>

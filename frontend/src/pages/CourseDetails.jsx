@@ -65,10 +65,10 @@ function CourseDetails() {
           <h1 style={styles.title}>{course.title}</h1>
           <p style={styles.subtitle}>{course.description}</p>
           <div style={styles.meta}>
-            <div style={styles.metaItem}>? {course.rating} Rating</div>
-            <div style={styles.metaItem}>?? {course.students} Students</div>
-            <div style={styles.metaItem}>?? {course.duration}</div>
-            <div style={styles.metaItem}>?? {course.level}</div>
+            <div style={styles.metaItem}>⭐ {course.rating} Rating</div>
+            <div style={styles.metaItem}>👥 {course.students} Students</div>
+            <div style={styles.metaItem}>⏱️ {course.duration}</div>
+            <div style={styles.metaItem}>📶 {course.level}</div>
           </div>
         </div>
       </div>
@@ -89,21 +89,21 @@ function CourseDetails() {
             <h2 style={styles.sectionTitle}>Course Curriculum</h2>
             <div style={styles.module}>
               <div style={styles.moduleTitle}>Module 1: Introduction to AI</div>
-              <div style={styles.lesson}>?? What is Artificial Intelligence? (15 min)</div>
-              <div style={styles.lesson}>?? History and Evolution of AI (20 min)</div>
-              <div style={styles.lesson}>?? Quiz: AI Fundamentals</div>
+              <div style={styles.lesson}>▶️ What is Artificial Intelligence? (15 min)</div>
+              <div style={styles.lesson}>▶️ History and Evolution of AI (20 min)</div>
+              <div style={styles.lesson}>❓ Quiz: AI Fundamentals</div>
             </div>
             <div style={styles.module}>
               <div style={styles.moduleTitle}>Module 2: Machine Learning Basics</div>
-              <div style={styles.lesson}>?? Introduction to ML (25 min)</div>
-              <div style={styles.lesson}>?? Supervised vs Unsupervised Learning (30 min)</div>
-              <div style={styles.lesson}>?? Hands-on: First ML Model</div>
+              <div style={styles.lesson}>▶️ Introduction to ML (25 min)</div>
+              <div style={styles.lesson}>▶️ Supervised vs Unsupervised Learning (30 min)</div>
+              <div style={styles.lesson}>▶️ Hands-on: First ML Model</div>
             </div>
             <div style={styles.module}>
               <div style={styles.moduleTitle}>Module 3: Deep Learning</div>
-              <div style={styles.lesson}>?? Neural Networks Explained (35 min)</div>
-              <div style={styles.lesson}>?? Building Your First Neural Network (40 min)</div>
-              <div style={styles.lesson}>?? Project: Image Classification</div>
+              <div style={styles.lesson}>▶️ Neural Networks Explained (35 min)</div>
+              <div style={styles.lesson}>▶️ Building Your First Neural Network (40 min)</div>
+              <div style={styles.lesson}>▶️ Project: Image Classification</div>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@ function CourseDetails() {
           <div style={styles.card}>
             <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '15px' }}>Instructor</h3>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-              <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: '#667eea', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '24px' }}>?????</div>
+              <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: '#667eea', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '24px' }}>👨‍🏫</div>
               <div>
                 <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>{course.instructor}</div>
                 <div style={{ fontSize: '14px', color: '#718096' }}>AI Expert & Educator</div>

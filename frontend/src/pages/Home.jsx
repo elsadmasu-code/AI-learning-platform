@@ -143,42 +143,42 @@ function Home() {
         <h2 style={styles.sectionTitle}>Why Choose AI Learning Platform?</h2>
         <div style={styles.featuresGrid}>
           <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>??</div>
+            <div style={styles.featureIcon}>🤖</div>
             <h3 style={styles.featureTitle}>AI-Powered Learning</h3>
             <p style={styles.featureDescription}>
               Get personalized learning paths and real-time AI assistance tailored to your goals
             </p>
           </div>
           <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>??</div>
+            <div style={styles.featureIcon}>🤖</div>
             <h3 style={styles.featureTitle}>Gamification</h3>
             <p style={styles.featureDescription}>
               Earn XP, unlock achievements, and compete on leaderboards while learning
             </p>
           </div>
           <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>??</div>
+            <div style={styles.featureIcon}>🤖</div>
             <h3 style={styles.featureTitle}>Progress Tracking</h3>
             <p style={styles.featureDescription}>
               Monitor your learning journey with detailed analytics and insights
             </p>
           </div>
           <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>??</div>
+            <div style={styles.featureIcon}>🤖</div>
             <h3 style={styles.featureTitle}>Expert Instructors</h3>
             <p style={styles.featureDescription}>
               Learn from industry professionals with years of real-world experience
             </p>
           </div>
           <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>??</div>
+            <div style={styles.featureIcon}>🤖</div>
             <h3 style={styles.featureTitle}>Career Support</h3>
             <p style={styles.featureDescription}>
               Get job-ready with portfolio projects and career guidance
             </p>
           </div>
           <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>??</div>
+            <div style={styles.featureIcon}>🤖</div>
             <h3 style={styles.featureTitle}>Certificates</h3>
             <p style={styles.featureDescription}>
               Earn recognized certificates to showcase your achievements

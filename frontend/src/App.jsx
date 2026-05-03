@@ -6,8 +6,7 @@ import CourseDetails from './pages/CourseDetails';
 import LessonPlayer from './pages/LessonPlayer';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import GetStarted from './pages/GetStarted';
 import Admin from './pages/Admin';
 import Footer from './components/common/Footer';
 
@@ -54,14 +53,13 @@ function App() {
     <div>
       <nav style={navStyle}>
         <div style={navContainer}>
-          <Link to="/" style={logo}>?? AI Academy</Link>
+          <Link to="/" style={logo}>🤖 AI Academy</Link>
           <div style={navLinks}>
             <Link to="/" style={linkStyle}>Home</Link>
             <Link to="/courses" style={linkStyle}>Courses</Link>
             <Link to="/dashboard" style={linkStyle}>Dashboard</Link>
             <Link to="/profile" style={linkStyle}>Profile</Link>
-            <Link to="/login" style={linkStyle}>Login</Link>
-            <Link to="/register" style={{...linkStyle, background: '#667eea', padding: '8px 20px', borderRadius: '20px'}}>Sign Up</Link>
+            <Link to="/get-started" style={{...linkStyle, background: '#667eea', padding: '8px 20px', borderRadius: '20px'}}>Get Started</Link>
           </div>
         </div>
       </nav>
@@ -72,8 +70,9 @@ function App() {
         <Route path="/lessons/:lessonId" element={<LessonPlayer />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/login" element={<GetStarted />} />
+        <Route path="/register" element={<GetStarted />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />

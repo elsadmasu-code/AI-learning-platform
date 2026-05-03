@@ -135,7 +135,7 @@ function Admin() {
           <div style={styles.card}>
             <h2 style={styles.cardTitle}>Recent Activity</h2>
             <div style={styles.activityItem}>
-              <div style={{...styles.activityIcon, background: '#e6fffa'}}>??</div>
+              <div style={{...styles.activityIcon, background: '#e6fffa'}}>👤</div>
               <div>
                 <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>New User Registered</div>
                 <div style={{ fontSize: '14px', color: '#718096' }}>Sarah Chen joined the platform</div>
@@ -143,7 +143,7 @@ function Admin() {
               </div>
             </div>
             <div style={styles.activityItem}>
-              <div style={{...styles.activityIcon, background: '#fef5e7'}}>??</div>
+              <div style={{...styles.activityIcon, background: '#fef5e7'}}>📚</div>
               <div>
                 <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>Course Published</div>
                 <div style={{ fontSize: '14px', color: '#718096' }}>New course "Cloud Computing" added</div>
@@ -151,7 +151,7 @@ function Admin() {
               </div>
             </div>
             <div style={styles.activityItem}>
-              <div style={{...styles.activityIcon, background: '#fce4ec'}}>??</div>
+              <div style={{...styles.activityIcon, background: '#fce4ec'}}>💰</div>
               <div>
                 <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>Payment Received</div>
                 <div style={{ fontSize: '14px', color: '#718096' }}>$49.99 from Michael Brown</div>

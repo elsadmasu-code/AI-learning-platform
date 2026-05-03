@@ -68,13 +68,13 @@ function Courses() {
       <div style={styles.grid}>
         {displayCourses.map((course) => (
           <div key={course._id} style={styles.card} onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-            <div style={styles.thumbnail}>??</div>
+            <div style={styles.thumbnail}>📚</div>
             <div style={styles.cardContent}>
               <h3 style={styles.courseTitle}>{course.title}</h3>
               <div style={styles.meta}>
-                <span>? 4.8</span>
-                <span>?? {course.students || 0} students</span>
-                <span>?? {course.level || 'All Levels'}</span>
+                <span>⭐ 4.8</span>
+                <span>👥 {course.students || 0} students</span>
+                <span>📶 {course.level || 'All Levels'}</span>
               </div>
               <p style={styles.courseDesc}>{course.description}</p>
               <div style={styles.cardFooter}>
